@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import globalStyles from "../../constants/globalStyles";
 
 // context
 import AppStore from "../../contexts/GlobalContext";
@@ -17,11 +18,12 @@ import { Container } from "./LayoutStyles";
 
 const Layout = () => {
   const { players, game } = useContext(AppStore);
+  const { clPrimary } = globalStyles;
 
   return (
     <Container>
-      <MetaBar bgc={"#006eff"} />
-      <Header bgc={"#006eff"} />
+      <MetaBar bgc={clPrimary} />
+      <Header bgc={clPrimary} />
       <ChoosePlayerModal />
       {game && players ? <GameScreen /> : <HomeScreen />}
     </Container>

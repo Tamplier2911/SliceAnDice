@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import globalStyles from "../../constants/globalStyles";
 
 // contexts
 import AppStore from "../../contexts/GlobalContext";
@@ -6,6 +7,9 @@ import AppStore from "../../contexts/GlobalContext";
 // components
 import Button from "../Button/Button";
 import Dice from "../Dice/Dice";
+
+// screens
+import WinnerModal from "../WinnerModal/WinnerModal";
 
 // sc
 import {
@@ -28,30 +32,16 @@ const GameScreen = () => {
     holdCurrentScore,
     nextPlayer,
     currentRoll,
-    stopTheGame,
     winner,
     score,
     currentPlayer,
   } = useContext(AppStore);
   const { current, hold } = score[currentPlayer];
-  console.log(score, currentPlayer, currentRoll, winner);
-
-  /*
-    so winner pops up when player reaches 100 points
-
-    implement modal that is:
-    
-    1) when winner pops becomes visible 
-    it has start new game button and trophy 
-    + other people hold scores.
-    
-    2) once player press start new game - 
-    perform stopTheGame() method, which then 
-    reinitialize the game, prompting user to home screen.
-  */
+  const { clWhite, clPrimary } = globalStyles;
 
   return (
     <GameScreenView>
+      {winner ? <WinnerModal visible={winner} winner={winner} /> : null}
       <GameScreenViewTop>
         <GameScreenMetaView>
           <GameScreenPlayerView>
@@ -75,8 +65,8 @@ const GameScreen = () => {
         <GameScreenViewBot row={currentRoll}>
           <GameScreenButtonWrap row={currentRoll}>
             <Button
-              bgc={"#006eff"}
-              txc={"#fff"}
+              bgc={clPrimary}
+              txc={clWhite}
               title={"Next Player Turn!"}
               action={() => {
                 nextPlayer();
@@ -88,8 +78,8 @@ const GameScreen = () => {
         <GameScreenViewBot row={currentRoll}>
           <GameScreenButtonWrap row={currentRoll}>
             <Button
-              bgc={"#006eff"}
-              txc={"#fff"}
+              bgc={clPrimary}
+              txc={clWhite}
               title={"Hold"}
               action={() => {
                 holdCurrentScore(current, currentPlayer);
@@ -98,8 +88,8 @@ const GameScreen = () => {
           </GameScreenButtonWrap>
           <GameScreenButtonWrap row={currentRoll}>
             <Button
-              bgc={"#006eff"}
-              txc={"#fff"}
+              bgc={clPrimary}
+              txc={clWhite}
               title={"Roll"}
               action={() => {
                 rollDice(currentPlayer);

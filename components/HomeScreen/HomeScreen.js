@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import globalStyles from "../../constants/globalStyles";
 
 // context
 import AppStore from "../../contexts/GlobalContext";
@@ -19,6 +20,7 @@ import {
 
 const HomeScreen = () => {
   const { openPlayersModal } = useContext(AppStore);
+  const { clWhite, clPrimary } = globalStyles;
   return (
     <HomeScreenView>
       <HomeScreenViewTop>
@@ -26,14 +28,14 @@ const HomeScreen = () => {
           <MaterialCommunityIcons
             name="dice-multiple"
             size={200}
-            color="#006eff"
+            color={clPrimary}
           />
         </HomeScreenLogoWrap>
       </HomeScreenViewTop>
       <HomeScreenViewBot>
         <Button
-          bgc={"#006eff"}
-          txc={"#fff"}
+          bgc={clPrimary}
+          txc={clWhite}
           title={"Let's Roll!"}
           action={() => {
             openPlayersModal();

@@ -1,4 +1,7 @@
 import styled from "styled-components/native";
+import globalStyles from "../../constants/globalStyles";
+
+const { clPrimary } = globalStyles;
 
 const getBottomDirection = ({ row }) =>
   row === 1
@@ -29,7 +32,7 @@ export const GameScreenPlayerView = styled.View`
 
 export const GameScreenPlayerText = styled.Text`
   font-size: 24px;
-  color: #006eff;
+  color: ${clPrimary};
 `;
 
 export const GameScreenScoreView = styled.View`
@@ -43,7 +46,7 @@ export const GameScreenScoreTextView = styled.Text``;
 
 export const GameScreenScoreText = styled.Text`
   font-size: 18px;
-  color: #006eff;
+  color: ${clPrimary};
 `;
 
 export const GameScreenDiceView = styled.View`

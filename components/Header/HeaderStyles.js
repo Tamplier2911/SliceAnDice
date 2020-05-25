@@ -1,4 +1,7 @@
 import styled from "styled-components/native";
+import globalStyles from "../../constants/globalStyles";
+
+const { clWhite } = globalStyles;
 
 const getBgColor = ({ bgc }) =>
   bgc ? `background-color: ${bgc};` : `background-color: transparent;`;
@@ -14,7 +17,7 @@ export const HeaderTextView = styled.View`
 
 export const HeaderText = styled.Text`
   font-size: 30px;
-  color: #fff;
+  color: ${clWhite};
 `;
 
 export const HeaderContentView = styled.View`

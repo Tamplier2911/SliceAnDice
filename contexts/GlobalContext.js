@@ -186,7 +186,7 @@ export const GlobalStore = ({ children }) => {
    * Player considerd as winner is holded score is greater or equal to 100.
    * @function holdCurrentScore
    * @param {number} currentScore - current score from players object.
-   * @param {currentPlayer} currentPlayer - current player that performs hold.
+   * @param {number} currentPlayer - current player that performs hold.
    */
 
   const holdCurrentScore = (currentScore, currentPlayer) => {
@@ -205,7 +205,7 @@ export const GlobalStore = ({ children }) => {
    * If player rolled 2-6, score is added to score object.
    * Roll value is stored in state, if roll value === 1 we want to swtich player.
    * @function rollDice
-   * @param {currentPlayer} currentPlayer - current player that performs rolling.
+   * @param {number} currentPlayer - current player that performs rolling.
    */
 
   const rollDice = (currentPlayer) => {

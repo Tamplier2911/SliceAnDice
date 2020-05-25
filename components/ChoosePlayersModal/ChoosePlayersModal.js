@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import globalStyles from "../../constants/globalStyles";
 
 // context
 import AppStore from "../../contexts/GlobalContext";
@@ -23,6 +24,8 @@ const ChoosePlayersModal = () => {
     setPlayersFive,
   } = useContext(AppStore);
 
+  const { clWhite, clPrimary } = globalStyles;
+
   return (
     <ChoosePlayerModalView
       visible={playersModal}
@@ -32,8 +35,8 @@ const ChoosePlayersModal = () => {
       <ChoosePlayerModalBtnHolder>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={"#006eff"}
-            txc={"#fff"}
+            bgc={clPrimary}
+            txc={clWhite}
             title={"Two Players"}
             action={() => {
               setPlayersTwo();
@@ -43,8 +46,8 @@ const ChoosePlayersModal = () => {
         </ChoosePlayerModalBtnWrap>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={"#006eff"}
-            txc={"#fff"}
+            bgc={clPrimary}
+            txc={clWhite}
             title={"Three Players"}
             action={() => {
               setPlayersThree();
@@ -54,8 +57,8 @@ const ChoosePlayersModal = () => {
         </ChoosePlayerModalBtnWrap>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={"#006eff"}
-            txc={"#fff"}
+            bgc={clPrimary}
+            txc={clWhite}
             title={"Four Players"}
             action={() => {
               setPlayersFour();
@@ -65,8 +68,8 @@ const ChoosePlayersModal = () => {
         </ChoosePlayerModalBtnWrap>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={"#006eff"}
-            txc={"#fff"}
+            bgc={clPrimary}
+            txc={clWhite}
             title={"Five Players"}
             action={() => {
               setPlayersFive();

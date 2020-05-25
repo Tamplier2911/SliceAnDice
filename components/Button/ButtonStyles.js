@@ -1,9 +1,13 @@
 import styled from "styled-components/native";
+import globalStyles from "../../constants/globalStyles";
+
+const { clWhite, clFont } = globalStyles;
 
 const getBgColor = ({ bgc }) =>
-  bgc ? `background-color: ${bgc};` : `background-color: #333;`;
+  bgc ? `background-color: ${bgc};` : `background-color: ${clFont};`;
 
-const getTextolor = ({ txc }) => (txc ? `color: ${txc};` : `color: #fff;`);
+const getTextolor = ({ txc }) =>
+  txc ? `color: ${txc};` : `color: ${clWhite};`;
 
 export const ButtonElement = styled.TouchableOpacity`
   ${getBgColor}

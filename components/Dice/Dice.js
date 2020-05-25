@@ -1,4 +1,5 @@
 import React from "react";
+import globalStyles from "../../constants/globalStyles";
 
 // iconic
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -7,6 +8,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { DiceView, DiceText } from "./DiceStyles";
 
 const Dice = ({ num }) => {
+  const { clPrimary } = globalStyles;
   const diceNum =
     num === 1
       ? "one"
@@ -25,7 +27,7 @@ const Dice = ({ num }) => {
   return (
     <DiceView>
       <DiceText>
-        <FontAwesome5 name={`dice-${diceNum}`} size={200} color="#006eff" />
+        <FontAwesome5 name={`dice-${diceNum}`} size={200} color={clPrimary} />
       </DiceText>
     </DiceView>
   );
