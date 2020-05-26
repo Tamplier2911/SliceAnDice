@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import globalStyles from "../../constants/globalStyles";
 
-const { clWhite } = globalStyles;
+const { clWhite, fontStyle } = globalStyles;
 
 const getBgColor = ({ bgc }) =>
   bgc ? `background-color: ${bgc};` : `background-color: transparent;`;
@@ -11,15 +11,6 @@ export const HeaderView = styled.View`
   height: 10%;
 `;
 
-export const HeaderTextView = styled.View`
-  margin-right: auto;
-`;
-
-export const HeaderText = styled.Text`
-  font-size: 30px;
-  color: ${clWhite};
-`;
-
 export const HeaderContentView = styled.View`
   flex: 1;
   flex-direction: row;
@@ -27,4 +18,14 @@ export const HeaderContentView = styled.View`
   padding: 0 10px;
 `;
 
-export const HeaderLogoView = styled.View``;
+export const HeaderTextView = styled.View`
+  margin-right: auto;
+`;
+
+export const HeaderText = styled.Text`
+  font-size: 30px;
+  color: ${clWhite};
+  font-family: ${fontStyle};
+`;
+
+export const HeaderLogoView = styled.TouchableOpacity``;

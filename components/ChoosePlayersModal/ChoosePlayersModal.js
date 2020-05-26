@@ -10,7 +10,9 @@ import Button from "../Button/Button";
 // sc
 import {
   ChoosePlayerModalView,
-  ChoosePlayerModalBtnHolder,
+  ChoosePlayerModalImageView,
+  ChoosePlayerModalImage,
+  ChoosePlayerModalBtnView,
   ChoosePlayerModalBtnWrap,
 } from "./ChoosePlayersModalStyles";
 
@@ -24,7 +26,7 @@ const ChoosePlayersModal = () => {
     setPlayersFive,
   } = useContext(AppStore);
 
-  const { clWhite, clPrimary } = globalStyles;
+  const { clWhite, clBlack } = globalStyles;
 
   return (
     <ChoosePlayerModalView
@@ -32,11 +34,17 @@ const ChoosePlayersModal = () => {
       animationType="slide"
       presentationStyle="fullScreen"
     >
-      <ChoosePlayerModalBtnHolder>
+      <ChoosePlayerModalImageView>
+        <ChoosePlayerModalImage
+          source={require("../../assets/images/dice.jpg")}
+          // source={{ uri: "https://bit.ly/2yxbczo" }}
+        />
+      </ChoosePlayerModalImageView>
+      <ChoosePlayerModalBtnView>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={clPrimary}
-            txc={clWhite}
+            bgc={clWhite}
+            txc={clBlack}
             title={"Two Players"}
             action={() => {
               setPlayersTwo();
@@ -46,8 +54,8 @@ const ChoosePlayersModal = () => {
         </ChoosePlayerModalBtnWrap>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={clPrimary}
-            txc={clWhite}
+            bgc={clWhite}
+            txc={clBlack}
             title={"Three Players"}
             action={() => {
               setPlayersThree();
@@ -57,8 +65,8 @@ const ChoosePlayersModal = () => {
         </ChoosePlayerModalBtnWrap>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={clPrimary}
-            txc={clWhite}
+            bgc={clWhite}
+            txc={clBlack}
             title={"Four Players"}
             action={() => {
               setPlayersFour();
@@ -68,8 +76,8 @@ const ChoosePlayersModal = () => {
         </ChoosePlayerModalBtnWrap>
         <ChoosePlayerModalBtnWrap>
           <Button
-            bgc={clPrimary}
-            txc={clWhite}
+            bgc={clWhite}
+            txc={clBlack}
             title={"Five Players"}
             action={() => {
               setPlayersFive();
@@ -77,7 +85,7 @@ const ChoosePlayersModal = () => {
             }}
           />
         </ChoosePlayerModalBtnWrap>
-      </ChoosePlayerModalBtnHolder>
+      </ChoosePlayerModalBtnView>
     </ChoosePlayerModalView>
   );
 };

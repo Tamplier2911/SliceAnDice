@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import globalStyles from "../../constants/globalStyles";
 
-const { clWhite, clFont } = globalStyles;
+const { clWhite, clFont, fontStyle } = globalStyles;
 
 const getBgColor = ({ bgc }) =>
   bgc ? `background-color: ${bgc};` : `background-color: ${clFont};`;
@@ -23,6 +23,7 @@ export const ButtonTextWrapper = styled.View`
 
 export const ButtonText = styled.Text`
   ${getTextolor}
+  font-family: ${fontStyle};
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+
+// context
+import AppStore from "../../contexts/GlobalContext";
 
 // rnico
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -6,20 +9,21 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 // sc
 import {
   HeaderView,
+  HeaderContentView,
   HeaderTextView,
   HeaderText,
-  HeaderContentView,
   HeaderLogoView,
 } from "./HeaderStyles";
 
 const Header = ({ bgc }) => {
+  const { stopTheGame } = useContext(AppStore);
   return (
     <HeaderView bgc={bgc}>
       <HeaderContentView>
         <HeaderTextView>
           <HeaderText>Pig Game</HeaderText>
         </HeaderTextView>
-        <HeaderLogoView>
+        <HeaderLogoView onPress={() => stopTheGame()}>
           <MaterialCommunityIcons
             name="dice-multiple"
             size={50}

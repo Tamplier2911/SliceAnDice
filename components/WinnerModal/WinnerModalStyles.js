@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import globalStyles from "../../constants/globalStyles";
 
-const { clPrimary, clPrimeShadow } = globalStyles;
+const { clPrimary, clPrimeShadow, fontStyle } = globalStyles;
 
 export const WinnerModalComponent = styled.Modal``;
 
@@ -21,6 +21,7 @@ export const WinnerModalWinnerView = styled.View`
 `;
 
 export const WinnerModalWinnerText = styled.Text`
+  font-family: ${fontStyle};
   font-size: 30px;
   color: ${clPrimary};
 `;
@@ -42,6 +43,7 @@ export const WinnerModalIconScoreView = styled.View`
 `;
 
 export const WinnerModalIconScoreText = styled.Text`
+  font-family: ${fontStyle};
   font-size: 25px;
   color: ${clPrimary};
 `;
@@ -69,6 +71,7 @@ export const WinnerModalScoreListLeftView = styled.View`
 export const WinnerModalScoreListRightView = styled.View``;
 
 export const WinnerModalScoreListText = styled.Text`
+  font-family: ${fontStyle};
   font-size: 25px;
   color: ${clPrimary};
 `;

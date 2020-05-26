@@ -58,7 +58,7 @@ const WinnerModal = ({ visible, winner }) => {
         </WinnerModalMidView>
         <WinnerModalBotView>
           <WinnerModalScoreListView>
-            {Object.keys(score).map((key) => {
+            {Object.keys(score).map((key, id) => {
               if (key !== String(winner)) {
                 return (
                   <WinnerModalScoreListWrap key={key + id}>

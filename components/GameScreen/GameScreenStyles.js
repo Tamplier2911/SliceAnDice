@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import globalStyles from "../../constants/globalStyles";
 
-const { clPrimary } = globalStyles;
+const { clPrimary, fontStyle } = globalStyles;
 
 const getBottomDirection = ({ row }) =>
   row === 1
@@ -33,6 +33,7 @@ export const GameScreenPlayerView = styled.View`
 export const GameScreenPlayerText = styled.Text`
   font-size: 24px;
   color: ${clPrimary};
+  font-family: ${fontStyle};
 `;
 
 export const GameScreenScoreView = styled.View`
@@ -42,11 +43,12 @@ export const GameScreenScoreView = styled.View`
   justify-content: space-around;
 `;
 
-export const GameScreenScoreTextView = styled.Text``;
+export const GameScreenScoreTextView = styled.View``;
 
 export const GameScreenScoreText = styled.Text`
   font-size: 18px;
   color: ${clPrimary};
+  font-family: ${fontStyle};
 `;
 
 export const GameScreenDiceView = styled.View`
