@@ -33,7 +33,7 @@ import {
 
 const WinnerModal = ({ visible, winner }) => {
   const { stopTheGame, score } = useContext(AppStore);
-  const { clPrimary, clWhite } = globalStyles;
+  const { clPrimary, clWhite, clTrophy } = globalStyles;
   const { hold } = score[winner] || {};
 
   return (
@@ -48,7 +48,7 @@ const WinnerModal = ({ visible, winner }) => {
         </WinnerModalTopView>
         <WinnerModalMidView>
           <WinnerModalIconView>
-            <Ionicons name="md-trophy" size={200} color={"gold"} />
+            <Ionicons name="md-trophy" size={200} color={clTrophy} />
           </WinnerModalIconView>
           <WinnerModalIconScoreView>
             <WinnerModalIconScoreText>

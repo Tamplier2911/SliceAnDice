@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import globalStyles from "../../constants/globalStyles";
 
 // context
 import AppStore from "../../contexts/GlobalContext";
@@ -14,6 +15,7 @@ import {
   HeaderText,
   HeaderLogoView,
 } from "./HeaderStyles";
+const { clWhite } = globalStyles;
 
 const Header = ({ bgc }) => {
   const { stopTheGame } = useContext(AppStore);
@@ -27,7 +29,7 @@ const Header = ({ bgc }) => {
           <MaterialCommunityIcons
             name="dice-multiple"
             size={50}
-            color="white"
+            color={clWhite}
           />
         </HeaderLogoView>
       </HeaderContentView>
