@@ -7,7 +7,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 // sc
 import { DiceView, DiceText } from "./DiceStyles";
 
-const Dice = ({ num }) => {
+const Dice = ({ num, size }) => {
   const { clPrimary } = globalStyles;
   const diceNum =
     num === 1
@@ -27,7 +27,7 @@ const Dice = ({ num }) => {
   return (
     <DiceView>
       <DiceText>
-        <FontAwesome5 name={`dice-${diceNum}`} size={200} color={clPrimary} />
+        <FontAwesome5 name={`dice-${diceNum}`} size={size} color={clPrimary} />
       </DiceText>
     </DiceView>
   );

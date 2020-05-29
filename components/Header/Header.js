@@ -17,10 +17,11 @@ import {
 } from "./HeaderStyles";
 const { clWhite } = globalStyles;
 
-const Header = ({ bgc }) => {
+const Header = ({ bgc, dimensions }) => {
   const { stopTheGame } = useContext(AppStore);
+  const { orientation } = dimensions;
   return (
-    <HeaderView bgc={bgc}>
+    <HeaderView bgc={bgc} orientation={orientation}>
       <HeaderContentView>
         <HeaderTextView>
           <HeaderText>Pig Game</HeaderText>

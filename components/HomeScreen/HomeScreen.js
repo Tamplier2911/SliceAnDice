@@ -18,21 +18,22 @@ import {
   HomeScreenViewBot,
 } from "./HomeScreenStyles";
 
-const HomeScreen = () => {
+const HomeScreen = ({ dimensions }) => {
   const { openPlayersModal } = useContext(AppStore);
   const { clWhite, clPrimary } = globalStyles;
+  const { orientation, width } = dimensions;
   return (
     <HomeScreenView>
       <HomeScreenViewTop>
         <HomeScreenLogoWrap>
           <MaterialCommunityIcons
             name="dice-multiple"
-            size={200}
+            size={orientation === "landscape" ? width * 0.3 : width * 0.7}
             color={clPrimary}
           />
         </HomeScreenLogoWrap>
       </HomeScreenViewTop>
-      <HomeScreenViewBot>
+      <HomeScreenViewBot orientation={orientation}>
         <Button
           bgc={clPrimary}
           txc={clWhite}

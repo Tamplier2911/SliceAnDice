@@ -3,6 +3,9 @@ import globalStyles from "../../constants/globalStyles";
 
 const { clShadow } = globalStyles;
 
+const getRespectiveHeight = ({ orientation }) =>
+  orientation === "landscape" ? `height: 25%;` : `height: 18%;`;
+
 export const HomeScreenView = styled.View`
   flex: 1;
 `;
@@ -24,7 +27,7 @@ export const HomeScreenLogoWrap = styled.View`
 `;
 
 export const HomeScreenViewBot = styled.View`
+  ${getRespectiveHeight}
   padding: 10px;
-  height: 18%;
   justify-content: center;
 `;

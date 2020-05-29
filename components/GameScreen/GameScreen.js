@@ -10,6 +10,7 @@ import Dice from "../Dice/Dice";
 
 // screens
 import WinnerModal from "../WinnerModal/WinnerModal";
+import WinnerView from "../WinnerView/WinnerView";
 
 // sc
 import {
@@ -26,7 +27,7 @@ import {
   GameScreenButtonWrap,
 } from "./GameScreenStyles";
 
-const GameScreen = () => {
+const GameScreen = ({ dimensions }) => {
   const {
     rollDice,
     holdCurrentScore,
@@ -39,64 +40,79 @@ const GameScreen = () => {
   const { current, hold } = score[currentPlayer];
   const { clWhite, clPrimary } = globalStyles;
 
+  const { orientation, width } = dimensions;
+
   return (
     <GameScreenView>
-      {winner ? <WinnerModal visible={winner} winner={winner} /> : null}
-      <GameScreenViewTop>
-        <GameScreenMetaView>
-          <GameScreenPlayerView>
-            <GameScreenPlayerText>Player: {currentPlayer}</GameScreenPlayerText>
-          </GameScreenPlayerView>
-          <GameScreenScoreView>
-            <GameScreenScoreTextView>
-              <GameScreenScoreText>Hold: {hold}</GameScreenScoreText>
-            </GameScreenScoreTextView>
-            <GameScreenScoreTextView>
-              <GameScreenScoreText>Curr: {current}</GameScreenScoreText>
-            </GameScreenScoreTextView>
-          </GameScreenScoreView>
-        </GameScreenMetaView>
-        <GameScreenDiceView>
-          <Dice num={currentRoll} />
-        </GameScreenDiceView>
-      </GameScreenViewTop>
-
-      {currentRoll === 1 ? (
-        <GameScreenViewBot row={currentRoll}>
-          <GameScreenButtonWrap row={currentRoll}>
-            <Button
-              bgc={clPrimary}
-              txc={clWhite}
-              title={"Next Player Turn!"}
-              action={() => {
-                nextPlayer();
-              }}
-            />
-          </GameScreenButtonWrap>
-        </GameScreenViewBot>
+      {winner && orientation === "portrait" ? (
+        <WinnerModal visible={winner} winner={winner} />
+      ) : null}
+      {winner && orientation === "landscape" ? (
+        <WinnerView winner={winner} orientation={orientation} width={width} />
       ) : (
-        <GameScreenViewBot row={currentRoll}>
-          <GameScreenButtonWrap row={currentRoll}>
-            <Button
-              bgc={clPrimary}
-              txc={clWhite}
-              title={"Hold"}
-              action={() => {
-                holdCurrentScore(current, currentPlayer);
-              }}
-            />
-          </GameScreenButtonWrap>
-          <GameScreenButtonWrap row={currentRoll}>
-            <Button
-              bgc={clPrimary}
-              txc={clWhite}
-              title={"Roll"}
-              action={() => {
-                rollDice(currentPlayer);
-              }}
-            />
-          </GameScreenButtonWrap>
-        </GameScreenViewBot>
+        <React.Fragment>
+          <GameScreenViewTop>
+            <GameScreenMetaView>
+              <GameScreenPlayerView>
+                <GameScreenPlayerText orientation={orientation}>
+                  Player: {currentPlayer}
+                </GameScreenPlayerText>
+              </GameScreenPlayerView>
+              <GameScreenScoreView>
+                <GameScreenScoreTextView>
+                  <GameScreenScoreText>Hold: {hold}</GameScreenScoreText>
+                </GameScreenScoreTextView>
+                <GameScreenScoreTextView>
+                  <GameScreenScoreText>Curr: {current}</GameScreenScoreText>
+                </GameScreenScoreTextView>
+              </GameScreenScoreView>
+            </GameScreenMetaView>
+            <GameScreenDiceView>
+              <Dice
+                num={currentRoll}
+                size={orientation === "landscape" ? width * 0.25 : width * 0.7}
+              />
+            </GameScreenDiceView>
+          </GameScreenViewTop>
+
+          {currentRoll === 1 ? (
+            <GameScreenViewBot row={currentRoll} orientation={orientation}>
+              <GameScreenButtonWrap row={currentRoll}>
+                <Button
+                  bgc={clPrimary}
+                  txc={clWhite}
+                  title={"Next Player Turn!"}
+                  action={() => {
+                    nextPlayer();
+                  }}
+                />
+              </GameScreenButtonWrap>
+            </GameScreenViewBot>
+          ) : (
+            <GameScreenViewBot row={currentRoll} orientation={orientation}>
+              <GameScreenButtonWrap row={currentRoll}>
+                <Button
+                  bgc={clPrimary}
+                  txc={clWhite}
+                  title={"Hold"}
+                  action={() => {
+                    holdCurrentScore(current, currentPlayer);
+                  }}
+                />
+              </GameScreenButtonWrap>
+              <GameScreenButtonWrap row={currentRoll}>
+                <Button
+                  bgc={clPrimary}
+                  txc={clWhite}
+                  title={"Roll"}
+                  action={() => {
+                    rollDice(currentPlayer);
+                  }}
+                />
+              </GameScreenButtonWrap>
+            </GameScreenViewBot>
+          )}
+        </React.Fragment>
       )}
     </GameScreenView>
   );

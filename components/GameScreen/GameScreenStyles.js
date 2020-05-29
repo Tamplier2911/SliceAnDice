@@ -11,10 +11,17 @@ const getBottomDirection = ({ row }) =>
 const getButtonWidth = ({ row }) =>
   row === 1 ? `width: 100%;` : `width: 48%;`;
 
+const getRespectiveHeight = ({ orientation }) =>
+  orientation === "landscape" ? `height: 26%;` : `height: 16%;`;
+
+const getRespectiveFontSize = ({ orientation }) =>
+  orientation === "landscape" ? `font-size: 18px;` : ` font-size: 24px;`;
+
 export const GameScreenView = styled.View`
   flex: 1;
 `;
 
+// top
 export const GameScreenViewTop = styled.View`
   flex: 1;
   padding: 10px;
@@ -31,7 +38,7 @@ export const GameScreenPlayerView = styled.View`
 `;
 
 export const GameScreenPlayerText = styled.Text`
-  font-size: 24px;
+  ${getRespectiveFontSize}
   color: ${clPrimary};
   font-family: ${fontStyle};
 `;
@@ -55,10 +62,11 @@ export const GameScreenDiceView = styled.View`
   flex: 1;
 `;
 
+// bot
 export const GameScreenViewBot = styled.View`
   ${getBottomDirection}
+  ${getRespectiveHeight}
   padding: 10px;
-  height: 16%;
 `;
 
 export const GameScreenButtonWrap = styled.View`

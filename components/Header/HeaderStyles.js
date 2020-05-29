@@ -6,9 +6,12 @@ const { clWhite, fontStyle } = globalStyles;
 const getBgColor = ({ bgc }) =>
   bgc ? `background-color: ${bgc};` : `background-color: transparent;`;
 
+const getRespectiveHeight = ({ orientation }) =>
+  orientation === "landscape" ? `height: 15%;` : `height: 10%;`;
+
 export const HeaderView = styled.View`
   ${getBgColor}
-  height: 10%;
+  ${getRespectiveHeight}
 `;
 
 export const HeaderContentView = styled.View`
